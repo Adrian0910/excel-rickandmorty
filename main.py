@@ -1,17 +1,45 @@
-import requests  #Importamos la librería requests
-
-
+import requests  # Importamos la librería requests
+from openpyxl import Workbook
 
 print("SOLICITANDO INFORMACION DE INTERNET")
-print("espere....") 
-URL = 'https://rickandmortyapi.com/api/character/1,2,3' #configuramos la url
-#solicitamos la información y guardamos la respuesta en data.
-data = requests.get(URL) 
+print("espere....")
+URL = 'https://rickandmortyapi.com/api/character'  # configuramos la url
+# solicitamos la información y guardamos la respuesta en data.
+data = requests.get(URL)
 
-data = data.json() #convertimos la respuesta en dict
+#data = data.json()  # convertimos la respuesta en dict
+dataConvert = data.json()  # convertimos la respuesta en dict
 
-print(data)
+#print(data)
+newData = dataConvert.get('results')
 
+# =============================================================================
+# creamos el objeto Workbook
+wb = Workbook()
 
+# ruta de nuestro archivo
+filesheet = "./rickAndMorty.xlsx"
 
+# seleccionaos el archivo
+sheet = wb.active
 
+# escribirmos los datos con sus respectivas filas y columnas
+datos = [('id', 'name', 'status'),
+         (
+    dataConvert.get('id'),
+    dataConvert.get('name'),
+    dataConvert.get('status')
+)]
+
+# recorremos las columnas y escribimos los datos
+for i in newData:
+    sheet.append(
+        (
+            i.get('id'),
+            i.get('name'),
+            i.get('status')
+        )
+    )	
+
+# guardamos los cambios
+wb.save(filesheet)

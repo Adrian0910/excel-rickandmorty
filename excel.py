@@ -1,7 +1,4 @@
 from openpyxl import Workbook
-# importamos load_workbook
-from openpyxl import load_workbook
-
 
 # creamos el objeto Workbook
 wb = Workbook()
