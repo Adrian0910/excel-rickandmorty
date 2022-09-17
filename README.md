@@ -4,7 +4,7 @@
 ## main.py
 Este archivo es el principal, en donde se ha programado todo
 
-### prueba.py
+### test.py
 Este continene la prueba de iteración en los datos del endpoint
 
 ### excel.py

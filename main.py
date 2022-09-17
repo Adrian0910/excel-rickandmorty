@@ -23,8 +23,6 @@ filesheet = "./rickAndMorty.xlsx"
 # seleccionaos el archivo
 sheet = wb.active
 
-
-
 # recorremos las columnas y escribimos los datos
 for i in newData:
     sheet.append(
