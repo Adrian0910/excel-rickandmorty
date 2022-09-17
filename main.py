@@ -23,13 +23,7 @@ filesheet = "./rickAndMorty.xlsx"
 # seleccionaos el archivo
 sheet = wb.active
 
-# escribirmos los datos con sus respectivas filas y columnas
-datos = [('id', 'name', 'status'),
-         (
-    dataConvert.get('id'),
-    dataConvert.get('name'),
-    dataConvert.get('status')
-)]
+
 
 # recorremos las columnas y escribimos los datos
 for i in newData:
