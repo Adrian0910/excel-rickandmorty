@@ -22,7 +22,7 @@ filesheet = "./rickAndMorty.xlsx"
 
 # seleccionaos el archivo
 sheet = wb.active
-
+sheet.append(['id', 'name', 'status']) # creacion de encabezado
 # recorremos las columnas y escribimos los datos
 for i in newData:
     sheet.append(
